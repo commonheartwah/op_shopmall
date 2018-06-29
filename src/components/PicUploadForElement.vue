@@ -35,7 +35,7 @@
                 <el-upload
                 class="upload-demo"
                 ref="upload"
-                action="/op/material/upload_image_lib"
+                :action='babyfsConf.oEnv+"/op/material/upload_image_lib"'
                 :data='kongObj'
                 name="bin"
                 list-type="picture"
@@ -56,7 +56,7 @@
 <script>
 //引入axios实例
 
-
+import babyfsConf from '@/babyfsConf';
 export default {
     props:[
         'picFormVisible'
@@ -77,6 +77,7 @@ export default {
             // tags 标签
             inputVisible: false,
             inputValue: '',
+            babyfsConf:babyfsConf
         }
     },
     methods: {

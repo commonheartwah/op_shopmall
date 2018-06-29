@@ -1,0 +1,56 @@
+// .prodTable_left {
+//     float: left;
+// }
+.prodTable_right {
+    float: right;
+    overflow: hidden;
+    .el-button {
+        float: left;
+    }
+    .prodTable_i {
+        float: left;
+        width: 1px;
+        height: 25px;
+        margin: 5px 20px;
+        background: #36b3b3;
+    }
+}
+
+.prodList_table {
+    clear: both;
+    padding-top: 10px;
+}
+
+.prodList_page {
+    margin-top: 10px;
+    overflow: hidden;
+    .el-pagination {
+        float: right;
+    }
+}
+
+.cellClassName {
+    color: #ff4949;
+}
+
+.popover_main {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #E9ECEC;
+    border-radius: 3px;
+    display: flex;
+    .popover_main_p {
+        width: 72%;
+        padding: 5px;
+        overflow-y: scroll;
+        margin-right: 5px;
+    }
+    .popover_main_div {
+        height: 100%;
+        width: 28%;
+        .popover_main_btn {
+            height: 100%;
+            width: 100%;
+        }
+    }
+}

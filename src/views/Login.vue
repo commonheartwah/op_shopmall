@@ -68,14 +68,16 @@ export default {
                         this.loging = false;
 
                         if (res.data.success) {
-
+                            window.document.cookie='_token'+'='+res.data.data.newtoken
+                            window.document.cookie='_uid'+'='+res.data.data.newtoken
                             localStorage.setItem("userInfo", JSON.stringify(res.data.data.user));
                             this.$notify({
                                 title: '成功',
                                 message: '登录成功',
                                 type: 'success'
                             });
-                            this.$router.push({ path: '/backMember' });
+                            
+                            this.$router.push({ path: '/ordersList' });
                         }else{
                             if (res.data == '') {
                                 this.$notify({

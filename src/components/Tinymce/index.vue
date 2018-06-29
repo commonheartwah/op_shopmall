@@ -9,7 +9,7 @@ import {
 	getMaterialsList,
 	getVideoFromYouku
 } from '../../api/api';
-
+import babyfsConf from '@/babyfsConf';
 // import { getToken, upload } from 'api/qiniu'; // 七牛
 export default {
 	name: 'tinymce',
@@ -331,7 +331,7 @@ export default {
 			imagetools_cors_hosts: ['wpimg.wallstcn.com', 'wallstreetcn.com'],
 			imagetools_toolbar: 'watermark',
 			default_link_target: '_blank',
-			upload_image_url: '/op/material/upload_image',
+			upload_image_url: `${babyfsConf.oEnv}/op/material/upload_image`,
 			plugin_preview_width: 375,
 			plugin_preview_height: 667,
 

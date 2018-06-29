@@ -31,6 +31,7 @@ import {
 	goCallback,
 	getMaterialsList
 } from "../../api/api";
+import babyfsConf from '@/babyfsConf';
 export default {
 	name: "uploadMethods",
 	props: ["oProp", "oVal", "oTags", "oClearEmForm", "oClearForm", "oLocalUpload", "oAcType"],
@@ -158,7 +159,7 @@ export default {
 					data.append("name", para.name);
 					data.append("tags", para.tags);
 					self.$ajax
-						.post("/op/material/upload_image_lib", data, {
+						.post(`${babyfsConf}/op/material/upload_image_lib`, data, {
 							headers: {
 								"Content-Type": "multipart/form-data"
 							}

@@ -4,6 +4,10 @@
 
 import Vue from 'vue'
 
+//复制copy
+import VueClipboard from 'vue-clipboard2'
+Vue.use(VueClipboard)
+
 // 饿了么
 import ElementUI from 'element-ui'
 import '../static/css/index.css'
@@ -58,6 +62,8 @@ Vue.config.productionTip = false
 /* eslint-disable no-new */
 
 const router = new VueRouter({
+    // mode: 'history',
+    // base: 'op_retailer',
     routes
 })
 
@@ -86,4 +92,4 @@ new Vue({
     template: '<App/>',
     components: { App },
     router
-})
+});

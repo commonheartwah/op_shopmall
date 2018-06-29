@@ -1,15 +1,11 @@
 <template>
     <div class="upload-container">
-        <el-upload
-                class="image-uploader"
-                drag
-                :multiple="false"
-                :show-file-list="false"
-                action="/op/material/upload_image"
-                name="bin"
-                :on-success="handleImageScucess">
+        <el-upload class="image-uploader" drag :multiple="false" :show-file-list="false" :action='babyfsConf.oEnv+"/op/material/upload_image"' name="bin"
+            :on-success="handleImageScucess">
             <i class="el-icon-upload"></i>
-            <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
+            <div class="el-upload__text">将文件拖到此处，或
+                <em>点击上传</em>
+            </div>
         </el-upload>
         <div class="image-preview image-app-preview">
             <div class="image-preview-wrapper" v-show="imageUrl.length>1">
@@ -31,36 +27,49 @@
     </div>
 </template>
 <script>
+    import babyfsConf from '@/babyfsConf';
     // 预览效果见文章
     // import { getToken } from 'api/qiniu';
     export default {
-      name: 'singleImageUpload',
-      props: {
-        value: String
-      },
-      computed: {
-        imageUrl() {
-          return this.value
-        }
-      },
-      data() {
-        return {
-          tempUrl: '',
-          dataObj: { token: '', key: '' }
-        };
-      },
-      methods: {
-        rmImage() {
-          this.emitInput('');
+        name: 'singleImageUpload',
+        props: {
+            value: String
         },
-        emitInput(val) {
-          this.$emit('input', val);
+        computed: {
+            imageUrl() {
+                return this.value
+            }
         },
-        handleImageScucess(file) {
-          this.emitInput(file.data)
+        data() {
+            return {
+                tempUrl: '',
+                dataObj: {
+                    token: '',
+                    key: ''
+                },
+                babyfsConf:babyfsConf,
+            };
+        },
+        methods: {
+            rmImage() {
+                this.emitInput('');
+            },
+            emitInput(val) {
+                this.$emit('input', val);
+            },
+            handleImageScucess(file) {
+                if (!file.success) {
+                    this.$message({
+                        message: file.msg,
+                        type: 'warning'
+                    });
+                    return;
+                }
+                this.emitInput(file.data)
+            }
         }
-      }
     };
+
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
@@ -115,23 +124,23 @@
                 }
             }
         }
-        .image-app-preview{
-             width: 320px;
+        .image-app-preview {
+            width: 320px;
             height: 180px;
             position: relative;
             border: 1px dashed #d9d9d9;
             float: left;
             margin-left: 50px;
-            .app-fake-conver{
+            .app-fake-conver {
                 height: 44px;
                 position: absolute;
-                width: 100%;
-                // background: rgba(0, 0, 0, .1);
-               text-align: center;
-               line-height: 64px;
-               color: #fff;
+                width: 100%; // background: rgba(0, 0, 0, .1);
+                text-align: center;
+                line-height: 64px;
+                color: #fff;
 
             }
         }
     }
+
 </style>

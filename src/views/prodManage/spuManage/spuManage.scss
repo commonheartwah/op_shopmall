@@ -1,0 +1,28 @@
+.spuManage_right {
+    float: right;
+    overflow: hidden;
+    margin-top: 20px;
+    .el-button {
+        float: left;
+    }
+    .spuManage_i {
+        float: left;
+        width: 1px;
+        height: 25px;
+        margin: 5px 20px;
+        background: #36b3b3;
+    }
+}
+
+.prodList_table {
+    clear: both;
+    padding-top: 10px;
+}
+
+.prodList_page {
+    margin-top: 10px;
+    overflow: hidden;
+    .el-pagination {
+        float: right;
+    }
+}

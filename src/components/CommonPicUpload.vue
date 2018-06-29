@@ -34,7 +34,7 @@
         <el-upload
         class="upload-demo"
         ref="upload"
-        action="/op/material/upload_image_lib"
+        :action='babyfsConf.oEnv+"/op/material/upload_image_lib"'
         :data='kongObj'
         name="bin"
         list-type="picture"
@@ -54,6 +54,7 @@
 
 <script>
 import { uploadPicToLib } from "../api/api";
+import babyfsConf from '@/babyfsConf';
 export default {
   data() {
     return {
@@ -70,7 +71,8 @@ export default {
       inputVisible: false,
       inputValue: "",
       fileList: [],
-      successCount: 0
+      successCount: 0,
+      babyfsConf:babyfsConf
     };
   },
   methods: {
@@ -162,7 +164,7 @@ export default {
         data.append("name", para.name);
         data.append("tags", para.tags);
         this.$ajax
-          .post("/op/material/upload_image_lib", data, {
+          .post(`${babyfsConf.oEnv}/op/material/upload_image_lib`, data, {
             headers: {
               "Content-Type": "multipart/form-data"
             }

@@ -71,7 +71,7 @@
                     @errorhandle="handleError"
                     :max-file-size="5242880"
                     inputOfFile="bin"
-                    url="/op/material/upload_image"
+                    :action='babyfsConf.oEnv+"/op/material/upload_image"'
                     @click.native="dialogShowFull"
                 >
                 <el-button size="small" type="primary" >选取文件</el-button>
@@ -97,6 +97,7 @@
 </template>
 
 <script>
+import babyfsConf from '@/babyfsConf';
 // 引入axios实例
 import {
 	getUploadToken,
