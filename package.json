@@ -2,7 +2,7 @@
   "name": "back-project",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "chengjinrui <chengjinrui@babyfs.cn>",
+  "author": "wah",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
